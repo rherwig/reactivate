@@ -1,0 +1,16 @@
+# IntelliJ
+.idea
+*.iml
+
+# OS
+.DS_Store
+*.log
+
+# Node
+node_modules
+
+# Project
+dist
+lib
+es
+coverage

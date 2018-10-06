@@ -1,0 +1,9 @@
+{
+  "name": "vue-basic",
+  "scripts": {
+    "start": "reactivate serve"
+  },
+  "dependencies": {
+    "vue": "^2.5.17"
+  }
+}
