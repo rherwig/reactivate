@@ -20,11 +20,17 @@ export default (config: ReactivateConfig) => {
     throw new TypeError('webpack publicPath is not defined');
   }
 
+  if (typeof webpackConfig.output.path !== 'string') {
+    throw new TypeError('webpack path is not defined');
+  }
+
   app.use(devMiddleware(compiler, {
     publicPath: webpackConfig.output.publicPath
   }));
 
   app.use(hotMiddleware(compiler));
+
+  app.use(webpackConfig.output.publicPath, express.static(webpackConfig.output.path));
 
   app.listen(3000, () => {
     console.info(`Development server listening on port 3000...`);
