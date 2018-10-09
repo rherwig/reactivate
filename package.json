@@ -1,6 +1,6 @@
 {
   "name": "@hrwg/reactivate",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Zero config build and dev server tool for JavaScript and popular frameworks.",
   "main": "lib/index.js",
   "bin": {
@@ -10,7 +10,8 @@
     "start": "ts-node src/index.ts",
     "watch": "tsc -w",
     "test": "jest",
-    "build": "tsc"
+    "build": "tsc",
+    "prepublishOnly": "npm run build"
   },
   "keywords": [
     "zero config",
@@ -53,6 +54,7 @@
     "webpack": "^4.20.2",
     "webpack-dev-middleware": "^3.4.0",
     "webpack-hot-middleware": "^2.24.2",
+    "webpack-hot-server-middleware": "^0.5.0",
     "webpack-merge": "^4.1.4",
     "webpack-node-externals": "latest"
   },

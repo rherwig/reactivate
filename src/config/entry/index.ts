@@ -1,12 +1,15 @@
 import * as merge from 'webpack-merge';
 import { resolve } from 'path';
-import { Configuration, Entry, EntryFunc } from 'webpack';
+import { Configuration } from 'webpack';
 import { MergeStrategy } from 'webpack-merge';
+
+import { ReactivateEntry } from '../../types/ReactivateEntry';
 
 type TDefaultOptions = {
   strategy: MergeStrategy,
   context?: string | undefined,
 };
+
 type TOptions = {
   strategy?: MergeStrategy,
   context?: string | undefined,
@@ -17,9 +20,9 @@ const defaultOptions: TDefaultOptions = {
 };
 
 const addContext = (
-  entry: string | string[] | Entry | EntryFunc,
+  entry: string | string[] | ReactivateEntry,
   context?: string
-): string | string[] | Entry | EntryFunc => {
+): string | string[] | ReactivateEntry => {
   if (typeof context !== 'string') {
     return entry;
   }
@@ -43,7 +46,7 @@ const addContext = (
 };
 
 export default (
-  entry: string | string[] | Entry | EntryFunc,
+  entry: string | string[] | ReactivateEntry,
   options: TOptions = defaultOptions
 ) => (config: Configuration = {}): Configuration => {
   const _options: TDefaultOptions = {

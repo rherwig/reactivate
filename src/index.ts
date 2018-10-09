@@ -3,6 +3,7 @@ import * as program from 'commander';
 
 import configure from './config';
 import serve from './scripts/serve';
+import universalServe from './scripts/serve/universal';
 import build from './scripts/build';
 
 program
@@ -13,7 +14,11 @@ program
   .command('serve')
   .action(() => {
     const config = configure(program.config);
-    serve(config);
+    if (config.universal) {
+      universalServe(config);
+    } else {
+      serve(config);
+    }
   });
 
 program

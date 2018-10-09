@@ -33,7 +33,7 @@ export default (config: ReactivateConfig) => {
     baseConfig.push(vue());
   }
 
-  if (template) {
+  if (template && !config.universal) {
     baseConfig.push(htmlTemplate({ template }, { context }));
   }
 
